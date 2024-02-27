@@ -1,8 +1,6 @@
 import sys
-import logging
 
 def main():
-    setup_logging()  # Added for system testing
     limits = parse_limits()
     sensor_data = []
 
@@ -11,7 +9,7 @@ def main():
         for row in sensor_data:
             print(row)
     else:
-        logging.error("Incorrect command line arguments.")  # Modified for system testing
+        print("Error: Incorrect command line arguments.")
 
 def parse_limits():
     limits = []
@@ -30,15 +28,12 @@ def check_limits(limits):
         return False
 
 def read_sensors():
-    return [
-        [21.2, 18.2, 18.2, 22.2],
-        [-5.0, -4.2, -3.9, -4.5],
-        [1.2, 0.0, 0.5, -0.8, -1.0],
-        [25.0, -4.2, -13.9, 4.5]
-    ]
-
-def setup_logging():
-    logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')  # Added for system testing
+    return  [
+            [21.2, 18.2, 18.2, 22.2],
+            [-5.0, -4.2, -3.9, -4.5],
+            [1.2, 0.0, 0.5, -0.8, -1.0],
+            [25.0, -4.2, -13.9, 4.5]
+            ]
 
 if __name__ == "__main__":
     main()
